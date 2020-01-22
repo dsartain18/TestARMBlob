@@ -1,0 +1,56 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "variables": {},
+  "parameters": {
+    "StorageAccountName": {
+      "type": "string"
+    },
+    "EndpointName": {
+      "type": "string"
+    },
+    "ProfileName": {
+      "type": "string"
+    },
+    "Container1Name": {
+      "type": "string"
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('StorageAccountName')]",
+      "apiVersion": "2016-01-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "[parameters('storageAccountName')]"
+      },
+      "sku": {
+        "name": "Standard_LRS"
+      },
+      "kind": "Storage"
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
+      "apiVersion": "2018-03-01-preview",
+      "name": "[concat('default/', parameters('Container1Name'))]",
+      "dependsOn": [
+        "[parameters('StorageAccountName')]"
+      ],
+      "properties": {
+        "publicAccess": "Container"
+      }
+
+    }
+  ],
+  "outputs": {
+    "hostName": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.cdn/profiles/endpoints', parameters('profileName'), parameters('endpointName'))).hostName]"
+    },
+    "originHostHeader": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.cdn/profiles/endpoints', parameters('profileName'), parameters('endpointName'))).originHostHeader]"
+    }
+  }
+}

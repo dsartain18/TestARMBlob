@@ -1,0 +1,15 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "StorageAccountName": {
+      "value": "[concat('storage', uniqueString(resourceGroup().id))]"
+    }
+  },
+  "EndpontName": {
+    "value": "[concat('endpoint-', uniqueString(resourceGroup().id))]"
+  },
+  "ProfileName": {
+    "value": "CdnProfile2"
+  }
+}
