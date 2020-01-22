@@ -3,10 +3,10 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "StorageAccountName": {
-      "value": "[concat('storage', uniqueString(resourceGroup().id))]"
+      "value": "testarmblob"
     },
     "Container1Name": {
-      "value": "TestARMBlob"
+      "value": "test"
     }
   }  
 }

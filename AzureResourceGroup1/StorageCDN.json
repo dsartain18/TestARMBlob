@@ -20,20 +20,26 @@
         "displayName": "[parameters('StorageAccountName')]"
       },
       "sku": {
-        "name": "Standard_LRS"
+        "name": "Standard_LRS",
+        "tier": "Standard"
       },
-      "kind": "Storage"
-    },
-    {
-      "type": "Microsoft.Storage/storageAccounts/blobServices/containers",
-      "apiVersion": "2018-03-01-preview",
-      "name": "[concat('default/', parameters('Container1Name'))]",
-      "dependsOn": [
-        "[parameters('StorageAccountName')]"
-      ],
+      "kind": "BlobStorage",
       "properties": {
-        "publicAccess": "Container"
-      }
+        "accessTier": "Cool"
+      },
+      "resources": [
+        {
+          "apiVersion": "2018-03-01-preview",
+          "dependsOn": [
+            "[parameters('StorageAccountName')]"
+          ],
+          "name": "[concat('default/', parameters('Container1Name'))]",
+          "properties": {
+            "publicAccess": "None"
+          },
+          "type": "blobServices/containers"
+        }
+      ]
     }
   ]
 }
