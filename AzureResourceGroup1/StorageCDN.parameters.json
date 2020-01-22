@@ -4,12 +4,9 @@
   "parameters": {
     "StorageAccountName": {
       "value": "[concat('storage', uniqueString(resourceGroup().id))]"
+    },
+    "Container1Name": {
+      "value": "TestARMBlob"
     }
-  },
-  "EndpontName": {
-    "value": "[concat('endpoint-', uniqueString(resourceGroup().id))]"
-  },
-  "ProfileName": {
-    "value": "CdnProfile2"
-  }
+  }  
 }

@@ -6,12 +6,6 @@
     "StorageAccountName": {
       "type": "string"
     },
-    "EndpointName": {
-      "type": "string"
-    },
-    "ProfileName": {
-      "type": "string"
-    },
     "Container1Name": {
       "type": "string"
     }
@@ -23,7 +17,7 @@
       "apiVersion": "2016-01-01",
       "location": "[resourceGroup().location]",
       "tags": {
-        "displayName": "[parameters('storageAccountName')]"
+        "displayName": "[parameters('StorageAccountName')]"
       },
       "sku": {
         "name": "Standard_LRS"
@@ -40,17 +34,6 @@
       "properties": {
         "publicAccess": "Container"
       }
-
     }
-  ],
-  "outputs": {
-    "hostName": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.cdn/profiles/endpoints', parameters('profileName'), parameters('endpointName'))).hostName]"
-    },
-    "originHostHeader": {
-      "type": "string",
-      "value": "[reference(resourceId('Microsoft.cdn/profiles/endpoints', parameters('profileName'), parameters('endpointName'))).originHostHeader]"
-    }
-  }
+  ]
 }
