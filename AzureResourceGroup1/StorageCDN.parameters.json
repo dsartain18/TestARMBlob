@@ -7,6 +7,12 @@
     },
     "Container1Name": {
       "value": "test"
+    },
+    "StorageAccountName2": {
+      "value": "testarmstorage"
+    },
+    "Container2Name": {
+      "value": "test2"
     }
   }  
 }

@@ -6,7 +6,13 @@
     "StorageAccountName": {
       "type": "string"
     },
+    "StorageAccountName2": {
+      "type": "string"
+    },
     "Container1Name": {
+      "type": "string"
+    },
+    "Container2Name": {
       "type": "string"
     }
   },
@@ -35,7 +41,37 @@
           ],
           "name": "[concat('default/', parameters('Container1Name'))]",
           "properties": {
-            "publicAccess": "None"
+            "publicAccess": "Container"
+          },
+          "type": "blobServices/containers"
+        }
+      ]
+    },
+    {
+      "type": "Microsoft.Storage/storageAccounts",
+      "name": "[parameters('StorageAccountName2')]",
+      "apiVersion": "2018-02-01",
+      "location": "[resourceGroup().location]",
+      "tags": {
+        "displayName": "[parameters('StorageAccountName2')]"
+      },
+      "sku": {
+        "name": "Standard_LRS",
+        "tier": "Standard"
+      },
+      "kind": "StorageV2",
+      "properties": {
+        "accessTier": "Hot"
+      },
+      "resources": [
+        {
+          "apiVersion": "2018-02-01",
+          "dependsOn": [
+            "[parameters('StorageAccountName2')]"
+          ],
+          "name": "[concat('default/', parameters('Container2Name'))]",
+          "properties": {
+            "publicAccess": "Container"
           },
           "type": "blobServices/containers"
         }
