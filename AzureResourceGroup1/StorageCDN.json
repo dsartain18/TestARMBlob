@@ -79,7 +79,7 @@
           "type": "blobServices/containers"
         },
         {
-          "apiVersion": "2018-02-01",
+          "apiVersion": "2019-04-01",
           "dependsOn": [
             "[parameters('StorageAccountName2')]"
           ],
@@ -87,7 +87,7 @@
           "properties": {
             "publicAccess": "Container"
           },
-          "type": "blobServices/fileShares"
+          "type": "fileServices/shares"
         }
       ]
     }
