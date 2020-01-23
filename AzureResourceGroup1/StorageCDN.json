@@ -4,10 +4,12 @@
   "variables": {},
   "parameters": {
     "StorageAccountName": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "[concat('blobonly', uniqueString(resourceGroup().id))]"
     },
     "StorageAccountName2": {
-      "type": "string"
+      "type": "string",
+      "defaultValue": "[concat('fullstorage', uniqueString(resourceGroup().id))]"
     },
     "Container1Name": {
       "type": "string"
@@ -17,8 +19,15 @@
     },
     "FileShare1Name": {
       "type": "string"
+    },
+    "sharePrefix": {
+      "type": "string",
+      "defaultValue": "logs",
+      "metadata": {
+        "description": "Specifies the prefix of the file share names."
+      }
     }
-  },
+  },  
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
