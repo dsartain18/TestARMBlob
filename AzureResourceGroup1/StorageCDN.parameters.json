@@ -9,7 +9,7 @@
       "value": "testblob"
     },
     "StorageAccountName2": {
-      "value": "testarmblobandfilestorage"
+      "value": "blobandfilestorage"
     },
     "Container2Name": {
       "value": "testblob2"
