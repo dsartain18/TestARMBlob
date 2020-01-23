@@ -13,6 +13,9 @@
     },
     "Container2Name": {
       "value": "test2"
+    },
+    "FileShare1Name": {
+      "value": "testFileShare"
     }
   }  
 }
