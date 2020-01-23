@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "StorageAccountName": {
-      "value": "testarmblob"
+      "value": "testarmblobonly"
     },
     "Container1Name": {
-      "value": "test"
+      "value": "testblob"
     },
     "StorageAccountName2": {
-      "value": "testarmstorage"
+      "value": "testarmblobandfilestorage"
     },
     "Container2Name": {
-      "value": "test2"
+      "value": "testblob2"
     },
     "FileShare1Name": {
       "value": "testfileshare"
